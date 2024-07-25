@@ -5,7 +5,8 @@
   "description": "Manage your tabs efficiently",
   "permissions": [
     "tabs",
-    "storage"
+    "storage",
+    "contextMenus"
   ],
   "action": {
     "default_popup": "popup.html"

@@ -12,20 +12,10 @@ document.getElementById('saveSelectedTabs').addEventListener('click', () => {
 });
 
 function saveTabs(tabs) {
-  const tabData = tabs.map(t => ({
-    url: t.url,
-    title: t.title
-  }));
-  
-  chrome.storage.local.get({tabGroups: []}).then((result) => {
-    const tabGroups = result.tabGroups;
-    tabGroups.push({
-      title: new Date().toLocaleString(),
-      tabs: tabData
-    });
-    chrome.storage.local.set({tabGroups: tabGroups}).then(() => {
-      chrome.tabs.remove(tabs.map(t => t.id));
-      window.close();
-    });
+  chrome.runtime.sendMessage({
+    action: "saveTabs",
+    tabs: tabs
+  }, () => {
+    window.close(); // 关闭 popup
   });
 }
