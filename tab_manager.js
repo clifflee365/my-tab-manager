@@ -18,7 +18,7 @@ function renderTabGroups() {
           const editButton = document.createElement('button');
           editButton.className = 'edit-button';
           editButton.textContent = 'Edit';
-          editButton.onclick = () => editGroupTitle(groupIndex);
+          editButton.onclick = () => editGroupTitle(titleElement, groupIndex);
           headerElement.appendChild(editButton);
           
           groupElement.appendChild(headerElement);
@@ -41,14 +41,40 @@ function renderTabGroups() {
   });
 }
 
-function editGroupTitle(groupIndex) {
-  const newTitle = prompt('Enter new group title:');
-  if (newTitle) {
-      chrome.storage.local.get({tabGroups: []}).then((result) => {
-          result.tabGroups[groupIndex].title = newTitle;
-          chrome.storage.local.set({tabGroups: result.tabGroups}).then(renderTabGroups);
-      });
+function editGroupTitle(titleElement, groupIndex) {
+  const currentTitle = titleElement.textContent;
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.value = currentTitle;
+  input.className = 'edit-title-input';
+  
+  titleElement.textContent = '';
+  titleElement.appendChild(input);
+  input.focus();
+  
+  function saveTitle() {
+      const newTitle = input.value.trim();
+      if (newTitle && newTitle !== currentTitle) {
+          chrome.storage.local.get({tabGroups: []}).then((result) => {
+              result.tabGroups[groupIndex].title = newTitle;
+              chrome.storage.local.set({tabGroups: result.tabGroups}).then(() => {
+                  titleElement.textContent = newTitle;
+              });
+          });
+      } else {
+          titleElement.textContent = currentTitle;
+      }
   }
+  
+  input.onblur = saveTitle;
+  input.onkeydown = (e) => {
+      if (e.key === 'Enter') {
+          saveTitle();
+          input.blur();
+      } else if (e.key === 'Escape') {
+          titleElement.textContent = currentTitle;
+      }
+  };
 }
 
 renderTabGroups();
