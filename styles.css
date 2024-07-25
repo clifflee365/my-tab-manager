@@ -1,26 +1,72 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
+  background-color: #f6f6f6;
+  color: #000;
+  line-height: 1.5;
   margin: 0;
   padding: 20px;
 }
 
+header {
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .tab-group {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  border: 1px solid #ddd;
-  padding: 10px;
+  overflow: hidden;
 }
 
-.tab-group h2 {
-  margin-top: 0;
+.tab-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #eaeaea;
 }
 
-.tab-group a {
+.tab-group-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.edit-button {
+  background-color: transparent;
+  border: 1px solid #0070f3;
+  color: #0070f3;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.edit-button:hover {
+  background-color: #0070f3;
+  color: #fff;
+}
+
+.tab-list {
+  padding: 16px 20px;
+}
+
+.tab-item {
   display: block;
-  margin: 5px 0;
-  color: #0066cc;
+  color: #0070f3;
   text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.2s ease;
 }
 
-button {
-  margin-left: 10px;
+.tab-item:hover {
+  color: #0051a2;
 }
