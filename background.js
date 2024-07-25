@@ -49,3 +49,8 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     openTabManager();
   }
 });
+
+// 添加点击扩展图标事件监听
+chrome.action.onClicked.addListener((tab) => {
+  openTabManager();
+});
