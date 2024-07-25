@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.tab-group {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.tab-group h2 {
+  margin-top: 0;
+}
+
+.tab-group a {
+  display: block;
+  margin: 5px 0;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+button {
+  margin-left: 10px;
+}

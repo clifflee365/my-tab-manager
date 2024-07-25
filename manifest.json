@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "My Tab Manager",
+  "version": "1.0",
+  "description": "Manage your tabs efficiently",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "chrome_url_overrides": {
+    "newtab": "tab_manager.html"
+  }
+}
