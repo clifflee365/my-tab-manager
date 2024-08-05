@@ -5,6 +5,9 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 20px;
+
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 header {
@@ -61,7 +64,7 @@ h1 {
   padding: 16px 20px;
 }
 
-.tab-item {
+/* .tab-item {
   display: block;
   color: #0070f3;
   text-decoration: none;
@@ -85,4 +88,39 @@ h1 {
 
 .edit-title-input:focus {
   box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+} */
+
+.tab-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.tab-item a {
+  color: #0070f3;
+  text-decoration: none;
+  flex-grow: 1;
+  margin-right: 10px;
+  transition: color 0.2s ease;
+}
+
+.tab-item a:hover {
+  color: #0051a2;
+}
+
+.delete-tab-button {
+  background-color: transparent;
+  font-size: 18px;
+  padding: 0 5px;
+  transition: color 0.2s ease;
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-tab-button:hover {
+  color: #ff0000;
 }
