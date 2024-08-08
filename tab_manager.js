@@ -2,7 +2,7 @@ function renderTabGroups() {
   chrome.storage.local.get({ tabGroups: [] }).then((result) => {
     const tabGroupsElement = document.getElementById("tab-groups")
     tabGroupsElement.innerHTML = ""
-
+    console.log('---result:', result);
     result.tabGroups.forEach((group, groupIndex) => {
       const groupElement = document.createElement("div")
       groupElement.className = "tab-group"
@@ -14,6 +14,11 @@ function renderTabGroups() {
       titleElement.className = "tab-group-title"
       titleElement.textContent = group.title
       headerElement.appendChild(titleElement)
+
+      const timeElement = document.createElement("span")
+      timeElement.className = "tab-group-time"
+      timeElement.textContent = new Date(group.lastModified).toLocaleString()
+      headerElement.appendChild(timeElement)
 
       const editButton = document.createElement("button")
       editButton.className = "edit-button"

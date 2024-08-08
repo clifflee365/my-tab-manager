@@ -40,8 +40,12 @@ h1 {
   font-size: 18px;
   font-weight: 500;
   margin: 0;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   margin-right: 10px;
+}
+
+.tab-group-time{
+  font-size: 12px;
 }
 
 .edit-button {
